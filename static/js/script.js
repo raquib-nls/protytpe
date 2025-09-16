@@ -1,38 +1,4 @@
 
-// document.getElementById("loginForm")?.addEventListener("submit", function (e) {
-//   e.preventDefault();
-//   window.location.href = "dashboard.html";
-// });
-
-
-// document.getElementById("signupForm")?.addEventListener("submit", function (e) {
-//   e.preventDefault();
-//   alert("Account created successfully!");
-//   window.location.href = "index.html";
-// });
-
-
-// function googleLogin() {
-//   alert("Google login clicked!");
-//   window.location.href = "dashboard.html";
-// }
-
-
-// function otpLogin() {
-//   alert("OTP sent to your mobile!");
-//   window.location.href = "dashboard.html";
-// }
-// function Feature() {
-
-//   window.location.href = "features.html";
-// }
-
-
-// function logout() {
-//   window.location.href = "index.html";
-// }
-
-// ✅ Run login check only on dashboard page
 document.addEventListener("DOMContentLoaded", function () {
   if (window.location.pathname.includes("dashboard.html")) {
     let isLoggedIn = localStorage.getItem("isLoggedIn");
@@ -44,14 +10,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// ✅ Login form submit
 document.getElementById("loginForm")?.addEventListener("submit", function (e) {
   e.preventDefault();
   localStorage.setItem("isLoggedIn", "true"); // mark as logged in
   window.location.href = "dashboard.html";    // go to dashboard
 });
 
-// ✅ Signup form submit
+
 document.getElementById("signupForm")?.addEventListener("submit", function (e) {
   e.preventDefault();
   alert("Account created successfully!");
@@ -59,39 +24,37 @@ document.getElementById("signupForm")?.addEventListener("submit", function (e) {
   window.location.href = "index.html";        // go to home page
 });
 
-// ✅ Google login
+
 function googleLogin() {
   alert("Google login clicked!");
   localStorage.setItem("isLoggedIn", "true");
   window.location.href = "dashboard.html"; // goes to dashboard
 }
 
-// ✅ OTP login
+
 function otpLogin() {
   alert("OTP sent to your mobile!");
   localStorage.setItem("isLoggedIn", "true");
   window.location.href = "index.html"; // redirect to home page
 }
 
-// ✅ Navigate to features
+
 function Feature() {
   window.location.href = "features.html";
 }
 
-// ✅ Logout (clear login)
+
 function logout() {
   localStorage.removeItem("isLoggedIn");
   window.location.href = "index.html";
 }
 
 
-// ✅ Logout
-function logout() {
-  // clear login session
-  localStorage.removeItem("isLoggedIn");
-  window.location.href = "index.html";
-}
-
+ function toggleMenu() {
+      const nav = document.getElementById('nav-links');
+      nav.classList.toggle('show');
+    }
+    
 function showFeatureDetail(feature) {
   switch (feature) {
     case 'soil':
@@ -219,10 +182,10 @@ function startVoice() {
 
 
 function detectPest() {
-  // trigger hidden file input
+  
   document.getElementById("pestImageInput").click();
 
-  // when file is selected
+  
   document.getElementById("pestImageInput").onchange = function(event) {
     const file = event.target.files[0];
     if (file) {
@@ -232,17 +195,133 @@ function detectPest() {
 }
 
 function cropRecommendation() {
-  // dummy recommendation
+ 
   const crops = ["Wheat 🌾", "Rice 🌿", "Maize 🌽", "Sugarcane 🍬", "Cotton 🌱"];
   const randomCrop = crops[Math.floor(Math.random() * crops.length)];
   alert("🌱 Recommended Crop for this season: " + randomCrop);
 }
 
 function marketPrice() {
-  // dummy price data
+  
   const prices = "📊 Market Prices Today:\n" +
                  "- Wheat: ₹2,185/quintal\n" +
                  "- Rice: ₹1,874/quintal\n" +
                  "- Maize: ₹1,632/quintal";
   alert(prices);
+}
+
+
+// translate part
+const translations = {
+  en: {
+    // Hero Section
+    hero_title: "Welcome to Fasal Mitra",
+    hero_subtitle: "Your trusted companion for modern farming. Get expert advice, weather updates, market prices, and crop recommendations all in one place.",
+    hero_cta: "Start Your Farming Journey",
+
+    // Features
+    feature_soil_title: "Soil Health Advisory",
+    feature_soil_desc: "Get personalized soil analysis and fertilizer recommendations based on your farm's specific needs.",
+    feature_pest_title: "Pest & Disease Detection",
+    feature_pest_desc: "Upload crop images for AI-powered disease diagnosis and treatment recommendations.",
+    feature_crop_title: "Crop Recommendation",
+    feature_crop_desc: "Discover the best crops for your location, soil type, and current weather conditions.",
+    feature_market_title: "Market Prices",
+    feature_market_desc: "Stay updated with real-time mandi rates and price trends for better selling decisions.",
+    feature_weather_title: "Weather Forecasts",
+    feature_weather_desc: "Get accurate weather predictions and agricultural alerts for your region.",
+    feature_voice_title: "Voice Support",
+    feature_voice_desc: "Ask questions using your voice in your preferred language for easy access to information.",
+    feature_chatbot_title: "AI Advisory Chatbot",
+    feature_chatbot_desc: "Get instant answers to your farming queries through our multilingual AI assistant.",
+    feature_tips_title: "Quick Tips",
+    feature_tips_desc: "Daily farming tips and best practices to improve your crop yield and farm management.",
+    feature_community_title: "Farmer Community",
+    feature_community_desc: "Connect with fellow farmers, share experiences, and learn from each other.",
+
+    // Stats Section
+    stats_title: "Empowering Farmers Across India",
+    stats_farmers: "Active Farmers",
+    stats_districts: "Districts Covered",
+    stats_queries: "Queries Resolved",
+    stats_satisfaction: "Farmer Satisfaction"
+  },
+
+  hi: {
+    // Hero Section
+    hero_title: "फसल मित्र में आपका स्वागत है",
+    hero_subtitle: "आधुनिक खेती के लिए आपका भरोसेमंद साथी। विशेषज्ञ सलाह, मौसम की जानकारी, मंडी भाव और फसल सुझाव सब एक जगह।",
+    hero_cta: "अपनी खेती की यात्रा शुरू करें",
+
+    // Features
+    feature_soil_title: "मिट्टी स्वास्थ्य सलाह",
+    feature_soil_desc: "आपके खेत की ज़रूरत के अनुसार मिट्टी विश्लेषण और उर्वरक सुझाव प्राप्त करें।",
+    feature_pest_title: "कीट और रोग पहचान",
+    feature_pest_desc: "एआई आधारित रोग पहचान और उपचार सिफारिशों के लिए फसल की छवियां अपलोड करें।",
+    feature_crop_title: "फसल सिफारिश",
+    feature_crop_desc: "अपने स्थान, मिट्टी के प्रकार और मौजूदा मौसम के अनुसार सबसे अच्छी फसल खोजें।",
+    feature_market_title: "मंडी भाव",
+    feature_market_desc: "बेहतर बिक्री निर्णयों के लिए रियल-टाइम मंडी दरों और मूल्य रुझानों के साथ अपडेट रहें।",
+    feature_weather_title: "मौसम पूर्वानुमान",
+    feature_weather_desc: "अपने क्षेत्र के लिए सटीक मौसम पूर्वानुमान और कृषि अलर्ट प्राप्त करें।",
+    feature_voice_title: "वॉइस समर्थन",
+    feature_voice_desc: "आसानी से जानकारी प्राप्त करने के लिए अपनी पसंदीदा भाषा में अपनी आवाज़ का उपयोग करें।",
+    feature_chatbot_title: "एआई सलाहकार चैटबॉट",
+    feature_chatbot_desc: "हमारे बहुभाषी एआई सहायक के माध्यम से अपनी कृषि प्रश्नों के त्वरित उत्तर प्राप्त करें।",
+    feature_tips_title: "त्वरित सुझाव",
+    feature_tips_desc: "अपनी फसल की उपज और खेत प्रबंधन में सुधार के लिए दैनिक खेती के सुझाव और सर्वोत्तम प्रथाएं।",
+    feature_community_title: "किसान समुदाय",
+    feature_community_desc: "अन्य किसानों से जुड़ें, अनुभव साझा करें और एक-दूसरे से सीखें।",
+
+    // Stats Section
+    stats_title: "भारत भर के किसानों को सशक्त बना रहे हैं",
+    stats_farmers: "सक्रिय किसान",
+    stats_districts: "कवर किए गए जिले",
+    stats_queries: "सुलझाए गए प्रश्न",
+    stats_satisfaction: "किसान संतुष्टि"
+  },
+
+  pa: {
+    // Hero Section
+    hero_title: "ਫਸਲ ਮਿੱਤਰ ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ",
+    hero_subtitle: "ਆਧੁਨਿਕ ਖੇਤੀ ਲਈ ਤੁਹਾਡਾ ਭਰੋਸੇਮੰਦ ਸਾਥੀ। ਮਾਹਰ ਸਲਾਹ, ਮੌਸਮ ਦੀ ਜਾਣਕਾਰੀ, ਮੰਡੀ ਭਾਅ ਅਤੇ ਫਸਲ ਸਿਫਾਰਸ਼ਾਂ ਸਭ ਇੱਕ ਹੀ ਥਾਂ ਤੇ।",
+    hero_cta: "ਆਪਣੀ ਖੇਤੀ ਯਾਤਰਾ ਸ਼ੁਰੂ ਕਰੋ",
+
+    // Features
+    feature_soil_title: "ਮਿੱਟੀ ਸਿਹਤ ਸਲਾਹ",
+    feature_soil_desc: "ਤੁਹਾਡੇ ਖੇਤ ਦੀਆਂ ਜ਼ਰੂਰਤਾਂ ਅਨੁਸਾਰ ਮਿੱਟੀ ਵਿਸ਼ਲੇਸ਼ਣ ਅਤੇ ਖਾਦ ਦੀ ਸਿਫਾਰਸ਼ ਪ੍ਰਾਪਤ ਕਰੋ।",
+    feature_pest_title: "ਕੀੜੇ ਅਤੇ ਬਿਮਾਰੀ ਪਛਾਣ",
+    feature_pest_desc: "ਏਆਈ ਆਧਾਰਿਤ ਬਿਮਾਰੀ ਪਛਾਣ ਅਤੇ ਇਲਾਜ ਸਿਫਾਰਸ਼ਾਂ ਲਈ ਫਸਲ ਦੀਆਂ ਤਸਵੀਰਾਂ ਅਪਲੋਡ ਕਰੋ।",
+    feature_crop_title: "ਫਸਲ ਸਿਫਾਰਸ਼",
+    feature_crop_desc: "ਆਪਣੀ ਜਗ੍ਹਾ, ਮਿੱਟੀ ਦੇ ਪ੍ਰਕਾਰ ਅਤੇ ਮੌਜੂਦਾ ਮੌਸਮ ਅਨੁਸਾਰ ਸਭ ਤੋਂ ਵਧੀਆ ਫਸਲ ਖੋਜੋ।",
+    feature_market_title: "ਮੰਡੀ ਭਾਅ",
+    feature_market_desc: "ਵਧੀਆ ਵਿਕਰੀ ਫੈਸਲੇ ਲਈ ਰੀਅਲ-ਟਾਈਮ ਮੰਡੀ ਦਰਾਂ ਅਤੇ ਕੀਮਤ ਰੁਝਾਨਾਂ ਨਾਲ ਅਪਡੇਟ ਰਹੋ।",
+    feature_weather_title: "ਮੌਸਮ ਭਵਿੱਖਵਾਣੀ",
+    feature_weather_desc: "ਆਪਣੇ ਖੇਤਰ ਲਈ ਸਹੀ ਮੌਸਮ ਪੇਸ਼ਗੋਈ ਅਤੇ ਕਿਸਾਨ ਅਲਰਟ ਪ੍ਰਾਪਤ ਕਰੋ।",
+    feature_voice_title: "ਵੌਇਸ ਸਹਾਇਤਾ",
+    feature_voice_desc: "ਸੂਚਨਾ ਤੱਕ ਆਸਾਨੀ ਨਾਲ ਪਹੁੰਚ ਲਈ ਆਪਣੀ ਪਸੰਦੀਦਾ ਭਾਸ਼ਾ ਵਿੱਚ ਆਪਣੀ ਆਵਾਜ਼ ਵਰਤੋਂ।",
+    feature_chatbot_title: "ਏਆਈ ਸਲਾਹਕਾਰ ਚੈਟਬੌਟ",
+    feature_chatbot_desc: "ਸਾਡੇ ਬਹੁਭਾਸ਼ੀ ਏਆਈ ਸਹਾਇਕ ਰਾਹੀਂ ਆਪਣੀਆਂ ਖੇਤੀ ਸੰਬੰਧੀ ਪ੍ਰਸ਼ਨਾਂ ਦੇ ਤੁਰੰਤ ਜਵਾਬ ਪ੍ਰਾਪਤ ਕਰੋ।",
+    feature_tips_title: "ਤੇਜ਼ ਸੁਝਾਅ",
+    feature_tips_desc: "ਦੈਨਿਕ ਖੇਤੀ ਦੇ ਸੁਝਾਅ ਅਤੇ ਸਰਵੋਤਮ ਅਭਿਆਸ ਆਪਣੀ ਫਸਲ ਉਤਪਾਦਨ ਅਤੇ ਖੇਤ ਪ੍ਰਬੰਧਨ ਵਿੱਚ ਸੁਧਾਰ ਲਈ।",
+    feature_community_title: "ਕਿਸਾਨ ਭਾਈਚਾਰਾ",
+    feature_community_desc: "ਹੋਰ ਕਿਸਾਨਾਂ ਨਾਲ ਜੁੜੋ, ਅਨੁਭਵ ਸਾਂਝੇ ਕਰੋ ਅਤੇ ਇਕ ਦੂਜੇ ਤੋਂ ਸਿੱਖੋ।",
+
+    // Stats Section
+    stats_title: "ਭਾਰਤ ਭਰ ਦੇ ਕਿਸਾਨਾਂ ਨੂੰ ਮਜ਼ਬੂਤ ਬਣਾ ਰਹੇ ਹਾਂ",
+    stats_farmers: "ਸਕ੍ਰਿਯ ਕਿਸਾਨ",
+    stats_districts: "ਕਵਰ ਕੀਤੇ ਜ਼ਿਲ੍ਹੇ",
+    stats_queries: "ਹੱਲ ਕੀਤੇ ਗਏ ਪ੍ਰਸ਼ਨ",
+    stats_satisfaction: "ਕਿਸਾਨ ਸੰਤੁਸ਼ਟੀ"
+  }
+};
+
+
+function changeLanguage(lang) {
+  document.querySelectorAll("[data-translate]").forEach(el => {
+    let key = el.getAttribute("data-translate");
+    if (translations[lang] && translations[lang][key]) {
+      el.innerText = translations[lang][key];
+    }
+  });
 }
