@@ -1,0 +1,80 @@
+/* Dashboard Container */
+.container {
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  max-width: 800px;
+  margin: 6% auto 3%;
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Logo */
+.container .logo {
+  font-size: 28px;
+  color: #16a085;
+  margin-bottom: 8px;
+}
+
+/* Heading */
+.container h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* Features Grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+/* Feature Cards */
+.features .card {
+  background: #f9f9f9;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.features .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.features .card a {
+  text-decoration: none;
+  color: #16a085;
+  font-weight: 600;
+  font-size: 15px;
+  display: block;
+}
+
+/* Logout Button */
+.container button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #e74c3c;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  width: fit-content;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.container button:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}

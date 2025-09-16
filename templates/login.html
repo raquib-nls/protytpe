@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasal Mitra -Login</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Fasal Mitra</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+    <div class="container">
+    <h1 class="logo">🌿 FasalMitra</h1>
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="loginId" placeholder="Farmer ID / Mobile Number / Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <a href="#" class="link">Forgot password?</a>
+      <button type="submit">Login</button>
+    </form>
+
+    <p>Or continue with</p>
+    <div class="social-login">
+      <button onclick="googleLogin()">Google</button>
+      <button onclick="otpLogin()">OTP</button>
+    </div>
+
+    <p>Don't have an account? <a href="signup.html" class="link">Sign up</a></p>
+  </div>
+
+   <div class="chatbot">
+    <div class="icon" onclick="toggleChat()">..</div>
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">🌿 FasalMitra Bot</div>
+      <div class="chat-body" id="chatBody">
+        <div class="chat-message bot">Hello 👋 How can I assist you today, farmer?</div>
+      </div>
+      <div class="chat-footer">
+        <input type="text" id="queryInput" placeholder="Write your queries...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+  <script src="/static/js/script.js"></script>
+</body>
+</html>

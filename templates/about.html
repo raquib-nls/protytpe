@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasal Mitra-about</title>
+    
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+      <nav class="navbar">
+    <div class="logo">Fasal Mitra</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+    <div id="about" class="page">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h1 data-translate="about_title">About Fasal Mitra</h1>
+                
+                <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow); margin-bottom: 2rem;">
+                    <h3 data-translate="about_mission_title">Our Mission</h3>
+                    <p data-translate="about_mission">Fasal Mitra is dedicated to empowering farmers across India with modern technology and traditional farming wisdom. We believe that every farmer deserves access to accurate information, expert advice, and digital tools that can transform their agricultural practices and improve their livelihoods.</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow); margin-bottom: 2rem;">
+                    <h3 data-translate="about_vision_title">Our Vision</h3>
+                    <p data-translate="about_vision">To create a future where technology bridges the gap between traditional farming and modern agricultural science, making farming more profitable, sustainable, and accessible to everyone.</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow); margin-bottom: 2rem;">
+                    <h3 data-translate="about_features_title">What We Offer</h3>
+                    <ul style="padding-left: 1.5rem; line-height: 2;">
+                        <li data-translate="about_feature_1">AI-powered crop disease detection and treatment recommendations</li>
+                        <li data-translate="about_feature_2">Real-time weather forecasts and agricultural alerts</li>
+                        <li data-translate="about_feature_3">Soil health analysis and fertilizer recommendations</li>
+                        <li data-translate="about_feature_4">Market price updates from over 2,000 mandis across India</li>
+                        <li data-translate="about_feature_5">Multilingual support in Hindi, English, and regional languages</li>
+                        <li data-translate="about_feature_6">Voice-enabled queries for low-literacy farmers</li>
+                        <li data-translate="about_feature_7">Expert agricultural advice through our AI chatbot</li>
+                    </ul>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow);">
+                    <h3 data-translate="about_team_title">Our Commitment</h3>
+                    <p data-translate="about_team">Our team consists of agricultural experts, data scientists, and technology professionals who are passionate about rural development and sustainable farming. We work closely with farmers, agricultural universities, and government agencies to ensure our solutions are practical, effective, and culturally appropriate.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+     <div class="chatbot">
+    <div class="icon" onclick="toggleChat()">..</div>
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">🌿 FasalMitra Bot</div>
+      <div class="chat-body" id="chatBody">
+        <div class="chat-message bot">Hello 👋 How can I assist you today, farmer?</div>
+      </div>
+      <div class="chat-footer">
+        <input type="text" id="queryInput" placeholder="Write your queries...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

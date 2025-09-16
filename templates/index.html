@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FasalMitra - Login</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Fasal Mitra</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="hero-section">
+      <div class="hero-content">
+        <h1 data-translate="hero_title">Welcome to Fasal Mitra</h1>
+        <p data-translate="hero_subtitle">Your trusted companion for modern farming. Get expert advice, weather updates,
+          market prices, and crop recommendations all in one place.</p>
+        <button class="cta-button pulse" onclick='Feature()' data-translate="hero_cta">Start Your Farming
+          Journey</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="features-grid fade-in-up">
+    <div class="feature-card" onclick="showFeatureDetail('soil')">
+      <div class="feature-icon">
+        <i class="fas fa-microscope"></i>
+      </div>
+      <h3 data-translate="feature_soil_title">Soil Health Advisory</h3>
+      <p data-translate="feature_soil_desc">Get personalized soil analysis and fertilizer recommendations based on your
+        farm's specific needs.</p>
+    </div>
+
+    <div class="feature-card" onclick="showFeatureDetail('pest')">
+      <div class="feature-icon">
+        <i class="fas fa-bug"></i>
+      </div>
+      <h3 data-translate="feature_pest_title">Pest & Disease Detection</h3>
+      <p data-translate="feature_pest_desc">Upload crop images for AI-powered disease diagnosis and treatment
+        recommendations.</p>
+    </div>
+
+    <div class="feature-card" onclick="showFeatureDetail('crop')">
+      <div class="feature-icon">
+        <i class="fas fa-chart-line"></i>
+      </div>
+      <h3 data-translate="feature_crop_title">Crop Recommendation</h3>
+      <p data-translate="feature_crop_desc">Discover the best crops for your location, soil type, and current weather
+        conditions.</p>
+    </div>
+
+    <div class="feature-card" onclick="showFeatureDetail('market')">
+      <div class="feature-icon">
+        <i class="fas fa-coins"></i>
+      </div>
+      <h3 data-translate="feature_market_title">Market Prices</h3>
+      <p data-translate="feature_market_desc">Stay updated with real-time mandi rates and price trends for better
+        selling decisions.</p>
+    </div>
+
+    <div class="feature-card" onclick="showFeatureDetail('weather')">
+      <div class="feature-icon">
+        <i class="fas fa-cloud-sun"></i>
+      </div>
+      <h3 data-translate="feature_weather_title">Weather Forecasts</h3>
+      <p data-translate="feature_weather_desc">Get accurate weather predictions and agricultural alerts for your region.
+      </p>
+    </div>
+
+    <div class="feature-card" onclick="showFeatureDetail('voice')">
+      <div class="feature-icon">
+        <i class="fas fa-microphone"></i>
+      </div>
+      <h3 data-translate="feature_voice_title">Voice Support</h3>
+      <p data-translate="feature_voice_desc">Ask questions using your voice in your preferred language for easy access
+        to information.</p>
+    </div>
+
+    <div class="feature-card" onclick="showFeatureDetail('chatbot')">
+      <div class="feature-icon">
+        <i class="fas fa-robot"></i>
+      </div>
+      <h3 data-translate="feature_chatbot_title">AI Advisory Chatbot</h3>
+      <p data-translate="feature_chatbot_desc">Get instant answers to your farming queries through our multilingual AI
+        assistant.</p>
+    </div>
+
+    <div class="feature-card" onclick="showFeatureDetail('tips')">
+      <div class="feature-icon">
+        <i class="fas fa-lightbulb"></i>
+      </div>
+      <h3 data-translate="feature_tips_title">Quick Tips</h3>
+      <p data-translate="feature_tips_desc">Daily farming tips and best practices to improve your crop yield and farm
+        management.</p>
+    </div>
+
+    <div class="feature-card" onclick="showFeatureDetail('community')">
+      <div class="feature-icon">
+        <i class="fas fa-users"></i>
+      </div>
+      <h3 data-translate="feature_community_title">Farmer Community</h3>
+      <p data-translate="feature_community_desc">Connect with fellow farmers, share experiences, and learn from each
+        other.</p>
+    </div>
+  </div>
+
+  <div class="stats-section">
+    <h2 data-translate="stats_title">Empowering Farmers Across India</h2>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h3 id="farmerCount">25,847</h3>
+        <p data-translate="stats_farmers">Active Farmers</p>
+      </div>
+      <div class="stat-item">
+        <h3>500+</h3>
+        <p data-translate="stats_districts">Districts Covered</p>
+      </div>
+      <div class="stat-item">
+        <h3>1,50,000+</h3>
+        <p data-translate="stats_queries">Queries Resolved</p>
+      </div>
+      <div class="stat-item">
+        <h3>98%</h3>
+        <p data-translate="stats_satisfaction">Farmer Satisfaction</p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+<div class="chatbot">
+  <div class="icon" onclick="toggleChat()">..</div>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">🌿 FasalMitra Bot</div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-message bot">Hello 👋 How can I assist you today, farmer?</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="queryInput" placeholder="Write your queries...">
+      <div class="bttn">
+      <button onclick="sendMessage()">Send</button>
+      <button onclick="startVoice()" id="voiceBtn">🎤</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="/static/js/script.js"></script>
+  <script>
+
+    function toggleMenu() {
+      const nav = document.getElementById('nav-links');
+      nav.classList.toggle('show');
+    }
+  </script>
+</body>
+
+</html>

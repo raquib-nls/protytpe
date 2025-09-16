@@ -1,0 +1,76 @@
+/* Crop Recommendation Container */
+.container {
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  max-width: 600px;
+  margin: 6% auto 3%;
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Logo */
+.container .logo {
+  font-size: 26px;
+  color: #16a085;
+  margin-bottom: 8px;
+}
+
+/* Heading */
+.container h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Info text */
+.container p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Crop list */
+.container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.container ul li {
+  background: #f0f8f7;
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+  transition: transform 0.2s ease, background 0.3s;
+}
+
+.container ul li:hover {
+  background: #e0f5f2;
+  transform: translateY(-2px);
+}
+
+/* Back Link */
+.container .link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #16a085;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.container .link:hover {
+  color: #1abc9c;
+  text-decoration: underline;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}

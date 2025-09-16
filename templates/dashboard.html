@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FasalMitra - Dashboard</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/dasbord.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Fasal Mitra</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1 class="logo">🌿 FasalMitra</h1>
+    <h2>Welcome, Farmer!</h2>
+
+    <div class="features">
+      <div class="card"><a href="/features/crop.html">📊 Crop Recommendation</a></div>
+      <div class="card"><a href="/features/weather.html">💧 Weather Updates</a></div>
+      <div class="card"><a href="/features/calendar.html">📅 Farming Calendar</a></div>
+      <div class="card"><a href="/features/schemes.html">🧾 Govt. Schemes</a></div>
+      <div class="card"><a href="/features/mandi.html">💰 Market Prices</a></div>
+    </div>
+
+    <button onclick="logout()">Logout</button>
+  </div>
+
+   <div class="chatbot">
+    <div class="icon" onclick="toggleChat()">..</div>
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">🌿 FasalMitra Bot</div>
+      <div class="chat-body" id="chatBody">
+        <div class="chat-message bot">Hello 👋 How can I assist you today, farmer?</div>
+      </div>
+      <div class="chat-footer">
+        <input type="text" id="queryInput" placeholder="Write your queries...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+  <script src="/static/js/script.js"></script>
+</body>
+</html>

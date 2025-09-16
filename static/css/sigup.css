@@ -1,0 +1,90 @@
+/* Signup Container */
+.container {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  width: 100%;
+  max-width: 420px;
+  margin: 80px auto; /* pushes it below navbar */
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Logo */
+.container .logo {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #16a085;
+}
+
+/* Headings */
+.container h2 {
+  margin: 10px 0 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Input fields */
+.container form input {
+  width: 100%;
+  padding: 14px 16px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.container form input:focus {
+  border-color: #16a085;
+  box-shadow: 0 0 6px rgba(22,160,133,0.3);
+}
+
+/* Submit Button */
+.container button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #16a085;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.container button:hover {
+  background: #1abc9c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Links */
+.container .link {
+  color: #16a085;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.container .link:hover {
+  color: #1abc9c;
+  text-decoration: underline;
+}
+
+/* Small text */
+.container p {
+  font-size: 14px;
+  color: #555;
+  margin-top: 16px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
