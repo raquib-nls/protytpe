@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FasalMitra - Featurs</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/dasbord.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Fasal Mitra</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features.html">Feature</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1 class="logo">🌿 FasalMitra</h1>
+    <h2>Welcome, Farmer!</h2>
+
+  <div class="features">
+  <div class="card">
+    <div class="icon">📊</div>
+    <a href="crop.html">Crop Recommendation</a>
+    <p>Get AI-based crop suggestions tailored to your soil, weather, and season to maximize yield.</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">💧</div>
+    <a href="weather.html">Weather Updates</a>
+    <p>Stay updated with local weather forecasts to plan irrigation and farming activities.</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">📅</div>
+    <a href="calendar.html">Farming Calendar</a>
+    <p>Track sowing, irrigation, and harvesting schedules for better farm management.</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">🧾</div>
+    <a href="schemes.html">Govt. Schemes</a>
+    <p>Explore government subsidies, schemes, and benefits available for farmers.</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">💰</div>
+    <a href="mandi.html">Market Prices</a>
+    <p>Check real-time market and mandi prices to sell crops at the best rate.</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">🤝</div>
+    <a href="community.html">Community</a>
+    <p>Connect with fellow farmers, share experiences, and learn best practices together.</p>
+  </div>
+</div>
+
+
+    <button onclick="logout()">Logout</button>
+  </div>
+
+   <div class="chatbot">
+    <div class="icon" onclick="toggleChat()">..</div>
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">🌿 FasalMitra Bot</div>
+      <div class="chat-body" id="chatBody">
+        <div class="chat-message bot">Hello 👋 How can I assist you today, farmer?</div>
+      </div>
+      <div class="chat-footer">
+        <input type="text" id="queryInput" placeholder="Write your queries...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+  <script src="static/js/script.js"></script>
+</body>
+</html>

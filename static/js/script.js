@@ -1,38 +1,96 @@
 
-document.getElementById("loginForm")?.addEventListener("submit", function (e) {
-  e.preventDefault();
-  window.location.href = "dashboard.html";
+// document.getElementById("loginForm")?.addEventListener("submit", function (e) {
+//   e.preventDefault();
+//   window.location.href = "dashboard.html";
+// });
+
+
+// document.getElementById("signupForm")?.addEventListener("submit", function (e) {
+//   e.preventDefault();
+//   alert("Account created successfully!");
+//   window.location.href = "index.html";
+// });
+
+
+// function googleLogin() {
+//   alert("Google login clicked!");
+//   window.location.href = "dashboard.html";
+// }
+
+
+// function otpLogin() {
+//   alert("OTP sent to your mobile!");
+//   window.location.href = "dashboard.html";
+// }
+// function Feature() {
+
+//   window.location.href = "features.html";
+// }
+
+
+// function logout() {
+//   window.location.href = "index.html";
+// }
+
+// ✅ Run login check only on dashboard page
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.location.pathname.includes("dashboard.html")) {
+    let isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    if (!isLoggedIn || isLoggedIn !== "true") {
+      alert("You must login first!");
+      window.location.href = "login.html";
+    }
+  }
 });
 
+// ✅ Login form submit
+document.getElementById("loginForm")?.addEventListener("submit", function (e) {
+  e.preventDefault();
+  localStorage.setItem("isLoggedIn", "true"); // mark as logged in
+  window.location.href = "dashboard.html";    // go to dashboard
+});
 
+// ✅ Signup form submit
 document.getElementById("signupForm")?.addEventListener("submit", function (e) {
   e.preventDefault();
   alert("Account created successfully!");
-  window.location.href = "index.html";
+  localStorage.setItem("isLoggedIn", "true"); // optional: auto-login after signup
+  window.location.href = "index.html";        // go to home page
 });
 
-
+// ✅ Google login
 function googleLogin() {
   alert("Google login clicked!");
-  window.location.href = "dashboard.html";
+  localStorage.setItem("isLoggedIn", "true");
+  window.location.href = "dashboard.html"; // goes to dashboard
 }
 
-
+// ✅ OTP login
 function otpLogin() {
   alert("OTP sent to your mobile!");
-  window.location.href = "dashboard.html";
+  localStorage.setItem("isLoggedIn", "true");
+  window.location.href = "index.html"; // redirect to home page
 }
+
+// ✅ Navigate to features
 function Feature() {
-
-  window.location.href = "dashboard.html";
+  window.location.href = "features.html";
 }
 
-
+// ✅ Logout (clear login)
 function logout() {
+  localStorage.removeItem("isLoggedIn");
   window.location.href = "index.html";
 }
 
 
+// ✅ Logout
+function logout() {
+  // clear login session
+  localStorage.removeItem("isLoggedIn");
+  window.location.href = "index.html";
+}
 
 function showFeatureDetail(feature) {
   switch (feature) {
@@ -106,7 +164,11 @@ function sendMessage() {
 
     if (message.toLowerCase().includes("hello")) {
       botMsg.innerText = "Hi! 🌱 Do you want crop, weather, or soil info?";
-    } else if (message.toLowerCase().includes("crop")) {
+    }
+    else if  (message.toLowerCase().includes("hey")) {
+      botMsg.innerText = "Hello how can i assist you. 😊";
+    }
+    else if (message.toLowerCase().includes("crop")) {
       botMsg.innerText = "🌾 Suggested crop: Wheat or Rice based on your season.";
     } else if (message.toLowerCase().includes("weather")) {
       botMsg.innerText = "☀️ Weather looks sunny today, good for field work!";
@@ -155,3 +217,32 @@ function startVoice() {
 }
 
 
+
+function detectPest() {
+  // trigger hidden file input
+  document.getElementById("pestImageInput").click();
+
+  // when file is selected
+  document.getElementById("pestImageInput").onchange = function(event) {
+    const file = event.target.files[0];
+    if (file) {
+      alert("✅ Image selected: " + file.name + "\n(Here AI model would analyze pest/disease)");
+    }
+  }
+}
+
+function cropRecommendation() {
+  // dummy recommendation
+  const crops = ["Wheat 🌾", "Rice 🌿", "Maize 🌽", "Sugarcane 🍬", "Cotton 🌱"];
+  const randomCrop = crops[Math.floor(Math.random() * crops.length)];
+  alert("🌱 Recommended Crop for this season: " + randomCrop);
+}
+
+function marketPrice() {
+  // dummy price data
+  const prices = "📊 Market Prices Today:\n" +
+                 "- Wheat: ₹2,185/quintal\n" +
+                 "- Rice: ₹1,874/quintal\n" +
+                 "- Maize: ₹1,632/quintal";
+  alert(prices);
+}

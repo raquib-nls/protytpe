@@ -1,0 +1,207 @@
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7f6;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar (same style as other pages) */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #2e7d32;
+      color: white;
+      padding: 15px 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      z-index: 1000;
+    }
+
+.container {
+      max-width: 900px;
+      margin: 80px auto 40px;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2e7d32;
+    }
+
+    .post {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .post strong {
+      color: #333;
+    }
+
+    .replies {
+      margin-top: 10px;
+      padding-left: 15px;
+      border-left: 3px solid #ddd;
+    }
+
+    .reply {
+      background: #f9f9f9;
+      padding: 8px;
+      margin: 6px 0;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+
+    .reply.expert {
+      border-left: 4px solid #2e7d32;
+      background: #e8f5e9;
+      font-weight: bold;
+    }
+
+    .side-section {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    .side-section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #2e7d32;
+    }
+
+    /* Ask box */
+    .ask-box {
+      margin-top: 30px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .ask-box textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: none;
+      font-size: 1rem;
+    }
+
+    .ask-box button {
+      margin-top: 10px;
+      background: #2e7d32;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .ask-box button:hover {
+      background: #256628;
+    }
+
+
+ /* Leaderboard (Bar Graph Style) */
+.leaderboard {
+  margin-top: 15px;
+}
+.bar {
+  background: #eee;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  position: relative;
+  height: 35px;
+}
+.bar .name {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+}
+.bar .progress {
+  height: 100%;
+  background: linear-gradient(90deg, #43a047, #2e7d32);
+  color: white;
+  text-align: right;
+  padding-right: 10px;
+  font-size: 0.85rem;
+  line-height: 35px;
+  border-radius: 8px 0 0 8px;
+  font-weight: bold;
+}
+
+/* Video Section (Modern Card Style) */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.video-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.video-card .thumbnail {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.video-card h3 {
+  font-size: 1rem;
+  margin: 8px 0;
+  color: #2e7d32;
+}
+
+.video-card p {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.video-card button {
+  background: #2e7d32;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.video-card button:hover {
+  background: #256628;
+}
+
+.s1{
+    margin: 0 12%;
+
+}
+.s2{
+    margin: 1%  12%;
+}

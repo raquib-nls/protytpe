@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Community</title>
+  <link rel="stylesheet" href="static/css/com.css">
+  <link rel="stylesheet" href="static/css/style.css">
+ 
+</head>
+<body>
+
+
+
+   <nav class="navbar">
+    <div class="logo">Fasal Mitra</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features.html">Feature</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  
+  <div class="container">
+    <h1>Community Discussions</h1>
+
+    <!-- Existing posts -->
+    <div id="posts">
+      <div class="post">
+        <strong>👨‍🌾 Ramesh (Farmer, Bihar):</strong>  
+        My tomato plants are drying fast, what can I do?
+
+        <div class="replies">
+          <div class="reply">🌱 Volunteer Neha: Try mulching to retain soil moisture.</div>
+          <div class="reply expert">👨‍🔬 Expert Dr. Verma: This is heat stress, shift watering to early morning.</div>
+        </div>
+      </div>
+
+      <div class="post">
+        <strong>👩‍🌾 Sita (Farmer, Punjab):</strong>  
+        What is the best fertilizer for wheat this season?
+
+        <div class="replies">
+          <div class="reply">👨‍🌾 Farmer Ajay: I used urea + DAP combo, worked well.</div>
+          <div class="reply expert">👨‍🔬 Expert Dr. Sharma: Use soil testing first, but NPK 20:20:0 is balanced.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ask a Question -->
+    <div class="ask-box">
+      <h2>💬 Ask a Question</h2>
+      <textarea id="questionBox" rows="3" placeholder="Type your question here..."></textarea>
+      <button onclick="postQuestion()">Post</button>
+    </div>
+  </div>
+  
+<!-- Leaderboard Section -->
+<div class="side-section s1">
+  <h2>🏆 Leaderboard</h2>
+  <p>Top Volunteers & Experts helping the community</p>
+  <div class="leaderboard">
+    <div class="bar">
+      <span class="name">Neha (Volunteer)</span>
+      <div class="progress" style="width: 95%">120 pts</div>
+    </div>
+    <div class="bar">
+      <span class="name">Dr. Sharma (Expert)</span>
+      <div class="progress" style="width: 85%">100 pts</div>
+    </div>
+    <div class="bar">
+      <span class="name">Ajay (Farmer)</span>
+      <div class="progress" style="width: 70%">80 pts</div>
+    </div>
+    <div class="bar">
+      <span class="name">Dr. Verma (Expert)</span>
+      <div class="progress" style="width: 65%">75 pts</div>
+    </div>
+    <div class="bar">
+      <span class="name">Rohit (Volunteer)</span>
+      <div class="progress" style="width: 55%">65 pts</div>
+    </div>
+  </div>
+</div>
+
+<!-- Learning & Rewards Section -->
+<div class="side-section s2">
+  <h2>🎥 Learn & Earn Rewards</h2>
+  <p>Amateur farmers can learn from short training videos and earn reward points.</p>
+  
+  <div class="video-grid">
+    <div class="video-card">
+      <div class="thumbnail">📹</div>
+      <h3>Organic Farming Basics</h3>
+      <p>Learn how to start with eco-friendly farming methods.</p>
+      <button onclick="watchVideo('Organic Farming Basics')">▶ Watch</button>
+    </div>
+    <div class="video-card">
+      <div class="thumbnail">💧</div>
+      <h3>Efficient Water Irrigation</h3>
+      <p>Save water and increase crop yield effectively.</p>
+      <button onclick="watchVideo('Efficient Water Irrigation')">▶ Watch</button>
+    </div>
+    <div class="video-card">
+      <div class="thumbnail">🐛</div>
+      <h3>Pest Control Made Easy</h3>
+      <p>Simple methods to keep your crops safe.</p>
+      <button onclick="watchVideo('Pest Control Made Easy')">▶ Watch</button>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="chatbot">
+    <div class="icon" onclick="toggleChat()">..</div>
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">🌿 FasalMitra Bot</div>
+      <div class="chat-body" id="chatBody">
+        <div class="chat-message bot">Hello 👋 How can I assist you today, farmer?</div>
+      </div>
+      <div class="chat-footer">
+        <input type="text" id="queryInput" placeholder="Write your queries...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function postQuestion() {
+      const questionBox = document.getElementById("questionBox");
+      const question = questionBox.value.trim();
+      if (!question) {
+        alert("Please type a question before posting!");
+        return;
+      }
+
+      // Create new post dynamically
+      const postsContainer = document.getElementById("posts");
+      const newPost = document.createElement("div");
+      newPost.classList.add("post");
+
+      newPost.innerHTML = `
+        <strong>👨‍🌾 You:</strong><br>
+        ${question}
+        <div class="replies">
+          <div class="reply">🌱 Volunteer: you can use organinc matraial to boost fertilizer like compost or vermicompost.</div>
+          <div class="reply expert">👨‍🔬 Expert Dr. Singh: I can agree with volunteers.</div>
+        </div>
+      `;
+
+      postsContainer.prepend(newPost); // add new post on top
+      questionBox.value = "";
+    }
+
+    function watchVideo(videoTitle) {
+  alert("🎉 You watched: " + videoTitle + "\n+10 reward points earned!");
+}
+  </script>
+  <script src="static/js/script.js"></script>
+</body>
+</html>

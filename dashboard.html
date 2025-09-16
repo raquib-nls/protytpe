@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FasalMitra - Dashboard</title>
-  <link rel="stylesheet" href="static/css/style.css">
-  <link rel="stylesheet" href="static/css/dasbord.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasal mitra - Dashboard</title>
+    <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/dashbord2.css">
 </head>
 <body>
-
-  <nav class="navbar">
+    <nav class="navbar">
     <div class="logo">Fasal Mitra</div>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <ul id="nav-links">
       <li><a href="index.html">Home</a></li>
+      <li><a href="features.html">Feature</a></li>
       <li><a href="dashboard.html">Dashboard</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -21,19 +21,52 @@
     </ul>
   </nav>
 
-  <div class="container">
-    <h1 class="logo">🌿 FasalMitra</h1>
-    <h2>Welcome, Farmer!</h2>
+  <h1 class="dashboard-heading">📊 Dashboard</h1>
+  <div class="dashboard" id="dashboard">
 
-    <div class="features">
-      <div class="card"><a href="crop.html">📊 Crop Recommendation</a></div>
-      <div class="card"><a href="weather.html">💧 Weather Updates</a></div>
-      <div class="card"><a href="calendar.html">📅 Farming Calendar</a></div>
-      <div class="card"><a href="schemes.html">🧾 Govt. Schemes</a></div>
-      <div class="card"><a href="mandi.html">💰 Market Prices</a></div>
+    <!-- Card 1 -->
+    <div class="card">
+      <h3>Quick Overview</h3>
+      <p>Active Crops: 3</p>
+      <p>New Alerts: 2</p>
+      <p>Pending Queries: 1</p>
     </div>
 
-    <button onclick="logout()">Logout</button>
+    <!-- Card 2 -->
+    <div class="card">
+      <h3>Today's Weather</h3>
+      <p>🌡 Temperature: 30°C</p>
+      <p>💧 Humidity: 65%</p>
+      <p>🌧 Rainfall: 1mm</p>
+      <p style="color:green;">✔ Good weather conditions</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <h3>Market Prices</h3>
+      <p>Wheat: ₹2,185/quintal ⬆</p>
+      <p>Rice: ₹1,874/quintal ⬇</p>
+      <p>Maize: ₹1,632/quintal ⬇</p>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+      <h3>Recent Alerts</h3>
+      <div class="alert weather">🌦 Heavy rainfall expected in next 48 hrs</div>
+      <div class="alert crop">🌱 Time to apply fertilizer for wheat crop</div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card quick-actions">
+  <h3>Quick Actions</h3>
+  <button onclick="detectPest()">🪲 Detect Pest/Disease</button>
+  <button onclick="cropRecommendation()">🌱 Crop Recommendation</button>
+  <button onclick="marketPrice()">💹 Market Price</button>
+  
+  
+  <input type="file" id="pestImageInput" accept="image/*" style="display:none">
+</div>
+
   </div>
 
    <div class="chatbot">
@@ -49,6 +82,7 @@
       </div>
     </div>
   </div>
-  <script src="static/js/script.js"></script>
+  <script src="/static/js/script.js"></script>
+
 </body>
 </html>
