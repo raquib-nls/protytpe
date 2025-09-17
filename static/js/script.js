@@ -214,12 +214,12 @@ function marketPrice() {
 // translate part
 const translations = {
   en: {
-    // Hero Section
+    
     hero_title: "Welcome to Fasal Mitra",
     hero_subtitle: "Your trusted companion for modern farming. Get expert advice, weather updates, market prices, and crop recommendations all in one place.",
     hero_cta: "Start Your Farming Journey",
 
-    // Features
+   
     feature_soil_title: "Soil Health Advisory",
     feature_soil_desc: "Get personalized soil analysis and fertilizer recommendations based on your farm's specific needs.",
     feature_pest_title: "Pest & Disease Detection",
@@ -239,7 +239,7 @@ const translations = {
     feature_community_title: "Farmer Community",
     feature_community_desc: "Connect with fellow farmers, share experiences, and learn from each other.",
 
-    // Stats Section
+   
     stats_title: "Empowering Farmers Across India",
     stats_farmers: "Active Farmers",
     stats_districts: "Districts Covered",
@@ -248,12 +248,12 @@ const translations = {
   },
 
   hi: {
-    // Hero Section
+   
     hero_title: "फसल मित्र में आपका स्वागत है",
     hero_subtitle: "आधुनिक खेती के लिए आपका भरोसेमंद साथी। विशेषज्ञ सलाह, मौसम की जानकारी, मंडी भाव और फसल सुझाव सब एक जगह।",
     hero_cta: "अपनी खेती की यात्रा शुरू करें",
 
-    // Features
+    
     feature_soil_title: "मिट्टी स्वास्थ्य सलाह",
     feature_soil_desc: "आपके खेत की ज़रूरत के अनुसार मिट्टी विश्लेषण और उर्वरक सुझाव प्राप्त करें।",
     feature_pest_title: "कीट और रोग पहचान",
@@ -273,7 +273,7 @@ const translations = {
     feature_community_title: "किसान समुदाय",
     feature_community_desc: "अन्य किसानों से जुड़ें, अनुभव साझा करें और एक-दूसरे से सीखें।",
 
-    // Stats Section
+   
     stats_title: "भारत भर के किसानों को सशक्त बना रहे हैं",
     stats_farmers: "सक्रिय किसान",
     stats_districts: "कवर किए गए जिले",
@@ -282,12 +282,12 @@ const translations = {
   },
 
   pa: {
-    // Hero Section
+    
     hero_title: "ਫਸਲ ਮਿੱਤਰ ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ",
     hero_subtitle: "ਆਧੁਨਿਕ ਖੇਤੀ ਲਈ ਤੁਹਾਡਾ ਭਰੋਸੇਮੰਦ ਸਾਥੀ। ਮਾਹਰ ਸਲਾਹ, ਮੌਸਮ ਦੀ ਜਾਣਕਾਰੀ, ਮੰਡੀ ਭਾਅ ਅਤੇ ਫਸਲ ਸਿਫਾਰਸ਼ਾਂ ਸਭ ਇੱਕ ਹੀ ਥਾਂ ਤੇ।",
     hero_cta: "ਆਪਣੀ ਖੇਤੀ ਯਾਤਰਾ ਸ਼ੁਰੂ ਕਰੋ",
 
-    // Features
+    
     feature_soil_title: "ਮਿੱਟੀ ਸਿਹਤ ਸਲਾਹ",
     feature_soil_desc: "ਤੁਹਾਡੇ ਖੇਤ ਦੀਆਂ ਜ਼ਰੂਰਤਾਂ ਅਨੁਸਾਰ ਮਿੱਟੀ ਵਿਸ਼ਲੇਸ਼ਣ ਅਤੇ ਖਾਦ ਦੀ ਸਿਫਾਰਸ਼ ਪ੍ਰਾਪਤ ਕਰੋ।",
     feature_pest_title: "ਕੀੜੇ ਅਤੇ ਬਿਮਾਰੀ ਪਛਾਣ",
@@ -307,7 +307,7 @@ const translations = {
     feature_community_title: "ਕਿਸਾਨ ਭਾਈਚਾਰਾ",
     feature_community_desc: "ਹੋਰ ਕਿਸਾਨਾਂ ਨਾਲ ਜੁੜੋ, ਅਨੁਭਵ ਸਾਂਝੇ ਕਰੋ ਅਤੇ ਇਕ ਦੂਜੇ ਤੋਂ ਸਿੱਖੋ।",
 
-    // Stats Section
+   
     stats_title: "ਭਾਰਤ ਭਰ ਦੇ ਕਿਸਾਨਾਂ ਨੂੰ ਮਜ਼ਬੂਤ ਬਣਾ ਰਹੇ ਹਾਂ",
     stats_farmers: "ਸਕ੍ਰਿਯ ਕਿਸਾਨ",
     stats_districts: "ਕਵਰ ਕੀਤੇ ਜ਼ਿਲ੍ਹੇ",
