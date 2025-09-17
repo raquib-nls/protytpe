@@ -52,14 +52,18 @@
       </div>
     </div>
 
-    <!-- Ask a Question -->
-    <div class="ask-box">
-      <h2>💬 Ask a Question</h2>
-      <textarea id="questionBox" rows="3" placeholder="Type your question here..."></textarea>
-      <button onclick="postQuestion()">Post</button>
-    </div>
-  </div>
+<!-- Ask a Question -->
+<div class="ask-box">
+  <h2>💬 Ask a Question</h2>
+  <textarea id="questionBox" rows="3" placeholder="Type your question here..."></textarea>
   
+  <!-- Buttons -->
+  <div style="margin-top:10px;">
+    <button onclick="postQuestion()">Post</button>
+    <button onclick="startVoice()">🎙️ Voice</button>
+    <button onclick="startVideo()">🎥 Video</button>
+  </div>
+</div>
 <!-- Leaderboard Section -->
 <div class="side-section s1">
   <h2>🏆 Leaderboard</h2>
@@ -154,13 +158,25 @@
         </div>
       `;
 
-      postsContainer.prepend(newPost); // add new post on top
+      postsContainer.prepend(newPost);
       questionBox.value = "";
     }
 
     function watchVideo(videoTitle) {
   alert("🎉 You watched: " + videoTitle + "\n+10 reward points earned!");
 }
+
+  function postQuestion() {
+    alert("Question posted!");
+  }
+  
+  function startVoice() {
+    alert("Voice input started!");
+  }
+  
+  function startVideo() {
+    alert("Video input started!");
+  }
   </script>
   <script src="static/js/script.js"></script>
 </body>
