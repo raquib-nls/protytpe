@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
   if (window.location.pathname.includes("dashboard.html")) {
     let isLoggedIn = localStorage.getItem("isLoggedIn");
@@ -12,100 +11,236 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.getElementById("loginForm")?.addEventListener("submit", function (e) {
   e.preventDefault();
-  localStorage.setItem("isLoggedIn", "true"); // mark as logged in
-  window.location.href = "dashboard.html";    // go to dashboard
+  localStorage.setItem("isLoggedIn", "true");
+  window.location.href = "dashboard.html";
 });
-
 
 document.getElementById("signupForm")?.addEventListener("submit", function (e) {
   e.preventDefault();
   alert("Account created successfully!");
-  localStorage.setItem("isLoggedIn", "true"); // optional: auto-login after signup
-  window.location.href = "index.html";        // go to home page
+  localStorage.setItem("isLoggedIn", "true");
+  window.location.href = "index.html";
 });
-
 
 function googleLogin() {
   alert("Google login clicked!");
   localStorage.setItem("isLoggedIn", "true");
-  window.location.href = "dashboard.html"; // goes to dashboard
+  window.location.href = "dashboard.html";
 }
-
 
 function otpLogin() {
   alert("OTP sent to your mobile!");
   localStorage.setItem("isLoggedIn", "true");
-  window.location.href = "index.html"; // redirect to home page
+  window.location.href = "index.html";
 }
-
-
-function Feature() {
-  window.location.href = "features.html";
-}
-
 
 function logout() {
   localStorage.removeItem("isLoggedIn");
   window.location.href = "index.html";
 }
 
+// ================= NAVBAR =================
+function toggleMenu() {
+  const nav = document.getElementById("nav-links");
+  nav.classList.toggle("show");
+}
 
- function toggleMenu() {
-      const nav = document.getElementById('nav-links');
-      nav.classList.toggle('show');
-    }
-    
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".navbar")) {
+    document.getElementById("nav-links").classList.remove("show");
+  }
+});
+
+// ================= HERO SECTION =================
+function fet(){
+  window.location.href = "features.html";
+}
+function scrollToFeatures() {
+  const featuresSection = document.getElementById("features");
+  if (featuresSection) {
+    featuresSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+}
+
+// Hero parallax effect
+window.addEventListener("scroll", () => {
+  const scrolled = window.pageYOffset;
+  const heroBackground = document.querySelector(".hero-background");
+
+  if (heroBackground && scrolled < window.innerHeight) {
+    const rate = scrolled * -0.5;
+    heroBackground.style.transform = `translateY(${rate}px)`;
+  }
+});
+
+// ================= FEATURES CARDS =================
 function showFeatureDetail(feature) {
   switch (feature) {
-    case 'soil':
+    case "soil":
       alert("🔬 Soil Health Advisory:\nGet insights about soil quality & fertilizer recommendations.");
       break;
-
-    case 'pest':
+    case "pest":
       alert("🐛 Pest & Disease Detection:\nUpload crop images for AI-powered diagnosis.");
       break;
-
-    case 'crop':
+    case "crop":
       alert("🌱 Crop Recommendation:\nDiscover the best crops based on soil & weather.");
       break;
-
-    case 'market':
+    case "market":
       alert("💰 Market Prices:\nCheck real-time mandi rates & price trends.");
       break;
-
-    case 'weather':
+    case "weather":
       alert("🌦 Weather Forecasts:\nStay updated with accurate forecasts & alerts.");
       break;
-
-    case 'voice':
+    case "voice":
       alert("🎤 Voice Support:\nAsk questions in your language using voice input.");
       break;
-
-    case 'chatbot':
+    case "chatbot":
       alert("🤖 AI Advisory Chatbot:\nGet instant answers to your farming queries.");
       break;
-
-    case 'tips':
+    case "tips":
       alert("💡 Quick Tips:\nDaily farming advice to boost productivity.");
       break;
-
-    case 'community':
+    case "community":
       alert("👥 Farmer Community:\nConnect, share & learn with other farmers.");
       break;
-
     default:
       alert("Feature coming soon!");
   }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const featureCards = document.querySelectorAll(".feature-card");
+
+  featureCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      // Bounce effect
+      card.style.transform = "translateY(-15px) scale(0.98)";
+      setTimeout(() => {
+        card.style.transform = "";
+      }, 150);
+
+      // Find feature type by heading text
+      const title = card.querySelector("h3").innerText.toLowerCase();
+      if (title.includes("soil")) showFeatureDetail("soil");
+      else if (title.includes("pest")) showFeatureDetail("pest");
+      else if (title.includes("crop")) showFeatureDetail("crop");
+      else if (title.includes("market")) showFeatureDetail("market");
+      else if (title.includes("weather")) showFeatureDetail("weather");
+      else if (title.includes("voice")) showFeatureDetail("voice");
+      else if (title.includes("chatbot")) showFeatureDetail("chatbot");
+      else if (title.includes("tips")) showFeatureDetail("tips");
+      else if (title.includes("community")) showFeatureDetail("community");
+    });
+  });
+});
+
+// ================= SMOOTH ANCHOR LINKS =================
+document.addEventListener("DOMContentLoaded", () => {
+  const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+  anchorLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href").substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
+  });
+});
+
+// ================= FADE-IN ON SCROLL =================
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px",
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, observerOptions);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const fadeElements = document.querySelectorAll(".fade-in");
+  fadeElements.forEach((el) => observer.observe(el));
+
+  const featureCards = document.querySelectorAll(".feature-card");
+  featureCards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.1}s`;
+  });
+});
+
+// ================= STATS COUNTER =================
+function animateCounter(element) {
+  const target = parseInt(element.getAttribute("data-target")) || 0; 
+  let current = 0;
+  const increment = target / 60;
+
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+
+    const displayValue = Math.floor(current);
+
+    if (target >= 1000) {
+      element.textContent = displayValue.toLocaleString(); 
+    } else {
+      element.textContent = displayValue + "%";
+    }
+  }, 16);
+}
+
+const statsObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const statNumbers = entry.target.querySelectorAll(".stat-number");
+
+        statNumbers.forEach((stat, index) => {
+          const targets = [22222, 500, 98];
+          if (!stat.classList.contains("animated")) {
+            stat.classList.add("animated");
+            setTimeout(() => {
+              animateCounter(stat, targets[index]);
+            }, index * 200);
+          }
+        });
+      }
+    });
+  },
+  { threshold: 0.5 }
+);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const statsSection = document.querySelector(".stats-highlight");
+  if (statsSection) {
+    statsObserver.observe(statsSection);
+  }
+});
 
 
+
+// chat part
 function toggleChat() {
   const chatWindow = document.getElementById('chatWindow');
   if (chatWindow.style.display === 'flex') {
-    chatWindow.style.display = 'none';   
+    chatWindow.style.display = 'none';
   } else {
-    chatWindow.style.display = 'flex';   
+    chatWindow.style.display = 'flex';
   }
 }
 
@@ -121,14 +256,14 @@ function sendMessage() {
     userMsg.innerText = message;
     chatBody.appendChild(userMsg);
 
-   
+
     const botMsg = document.createElement('div');
     botMsg.className = "chat-message bot";
 
     if (message.toLowerCase().includes("hello")) {
       botMsg.innerText = "Hi! 🌱 Do you want crop, weather, or soil info?";
     }
-    else if  (message.toLowerCase().includes("hey")) {
+    else if (message.toLowerCase().includes("hey")) {
       botMsg.innerText = "Hello how can i assist you. 😊";
     }
     else if (message.toLowerCase().includes("crop")) {
@@ -143,7 +278,7 @@ function sendMessage() {
 
     chatBody.appendChild(botMsg);
 
-  
+
     chatBody.scrollTop = chatBody.scrollHeight;
 
 
@@ -158,23 +293,23 @@ function startVoice() {
   }
 
   const recognition = new webkitSpeechRecognition();
-  recognition.lang = "en-IN"; 
+  recognition.lang = "en-IN";
   recognition.continuous = false;
   recognition.interimResults = false;
 
   recognition.start();
 
-  recognition.onresult = function(event) {
+  recognition.onresult = function (event) {
     const transcript = event.results[0][0].transcript;
     document.getElementById("queryInput").value = transcript;
     sendMessage();
   };
 
-  recognition.onerror = function(event) {
+  recognition.onerror = function (event) {
     console.error("Speech recognition error:", event.error);
   };
 
-  recognition.onend = function() {
+  recognition.onend = function () {
     console.log("Speech recognition ended.");
   };
 }
@@ -182,11 +317,11 @@ function startVoice() {
 
 
 function detectPest() {
-  
+
   document.getElementById("pestImageInput").click();
 
-  
-  document.getElementById("pestImageInput").onchange = function(event) {
+
+  document.getElementById("pestImageInput").onchange = function (event) {
     const file = event.target.files[0];
     if (file) {
       alert("✅ Image selected: " + file.name + "\n(Here AI model would analyze pest/disease)");
@@ -195,18 +330,18 @@ function detectPest() {
 }
 
 function cropRecommendation() {
- 
+
   const crops = ["Wheat 🌾", "Rice 🌿", "Maize 🌽", "Sugarcane 🍬", "Cotton 🌱"];
   const randomCrop = crops[Math.floor(Math.random() * crops.length)];
   alert("🌱 Recommended Crop for this season: " + randomCrop);
 }
 
 function marketPrice() {
-  
+
   const prices = "📊 Market Prices Today:\n" +
-                 "- Wheat: ₹2,185/quintal\n" +
-                 "- Rice: ₹1,874/quintal\n" +
-                 "- Maize: ₹1,632/quintal";
+    "- Wheat: ₹2,185/quintal\n" +
+    "- Rice: ₹1,874/quintal\n" +
+    "- Maize: ₹1,632/quintal";
   alert(prices);
 }
 
@@ -214,12 +349,13 @@ function marketPrice() {
 // translate part
 const translations = {
   en: {
-    
+
     hero_title: "Welcome to Fasal Mitra",
     hero_subtitle: "Your trusted companion for modern farming. Get expert advice, weather updates, market prices, and crop recommendations all in one place.",
     hero_cta: "Start Your Farming Journey",
 
-   
+    features_header: "Comprehensive Farming Solutions",
+    features_subheader: "Empowering farmers with cutting-edge technology and personalized agricultural guidance",
     feature_soil_title: "Soil Health Advisory",
     feature_soil_desc: "Get personalized soil analysis and fertilizer recommendations based on your farm's specific needs.",
     feature_pest_title: "Pest & Disease Detection",
@@ -239,7 +375,7 @@ const translations = {
     feature_community_title: "Farmer Community",
     feature_community_desc: "Connect with fellow farmers, share experiences, and learn from each other.",
 
-   
+
     stats_title: "Empowering Farmers Across India",
     stats_farmers: "Active Farmers",
     stats_districts: "Districts Covered",
@@ -248,12 +384,13 @@ const translations = {
   },
 
   hi: {
-   
+
     hero_title: "फसल मित्र में आपका स्वागत है",
     hero_subtitle: "आधुनिक खेती के लिए आपका भरोसेमंद साथी। विशेषज्ञ सलाह, मौसम की जानकारी, मंडी भाव और फसल सुझाव सब एक जगह।",
     hero_cta: "अपनी खेती की यात्रा शुरू करें",
 
-    
+    features_header: "व्यापक खेती समाधान",
+    features_subheader: "किसानों को अत्याधुनिक तकनीक और व्यक्तिगत कृषि मार्गदर्शन के साथ सशक्त बनाना",
     feature_soil_title: "मिट्टी स्वास्थ्य सलाह",
     feature_soil_desc: "आपके खेत की ज़रूरत के अनुसार मिट्टी विश्लेषण और उर्वरक सुझाव प्राप्त करें।",
     feature_pest_title: "कीट और रोग पहचान",
@@ -273,7 +410,7 @@ const translations = {
     feature_community_title: "किसान समुदाय",
     feature_community_desc: "अन्य किसानों से जुड़ें, अनुभव साझा करें और एक-दूसरे से सीखें।",
 
-   
+
     stats_title: "भारत भर के किसानों को सशक्त बना रहे हैं",
     stats_farmers: "सक्रिय किसान",
     stats_districts: "कवर किए गए जिले",
@@ -282,12 +419,14 @@ const translations = {
   },
 
   pa: {
-    
+
     hero_title: "ਫਸਲ ਮਿੱਤਰ ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ",
     hero_subtitle: "ਆਧੁਨਿਕ ਖੇਤੀ ਲਈ ਤੁਹਾਡਾ ਭਰੋਸੇਮੰਦ ਸਾਥੀ। ਮਾਹਰ ਸਲਾਹ, ਮੌਸਮ ਦੀ ਜਾਣਕਾਰੀ, ਮੰਡੀ ਭਾਅ ਅਤੇ ਫਸਲ ਸਿਫਾਰਸ਼ਾਂ ਸਭ ਇੱਕ ਹੀ ਥਾਂ ਤੇ।",
     hero_cta: "ਆਪਣੀ ਖੇਤੀ ਯਾਤਰਾ ਸ਼ੁਰੂ ਕਰੋ",
 
-    
+    features_header: "ਵਿਆਪਕ ਖੇਤੀ ਸੌਲਿਊਸ਼ਨ",
+    features_subheader: "ਕਿਸਾਨਾਂ ਨੂੰ ਅਧੁਨਿਕ ਤਕਨਾਲੋਜੀ ਅਤੇ ਨਿੱਜੀ ਕਿਸਾਨੀ ਮਾਰਗਦਰਸ਼ਨ ਨਾਲ ਮਜ਼ਬੂਤ ਬਣਾਉਣਾ",
+
     feature_soil_title: "ਮਿੱਟੀ ਸਿਹਤ ਸਲਾਹ",
     feature_soil_desc: "ਤੁਹਾਡੇ ਖੇਤ ਦੀਆਂ ਜ਼ਰੂਰਤਾਂ ਅਨੁਸਾਰ ਮਿੱਟੀ ਵਿਸ਼ਲੇਸ਼ਣ ਅਤੇ ਖਾਦ ਦੀ ਸਿਫਾਰਸ਼ ਪ੍ਰਾਪਤ ਕਰੋ।",
     feature_pest_title: "ਕੀੜੇ ਅਤੇ ਬਿਮਾਰੀ ਪਛਾਣ",
@@ -307,7 +446,7 @@ const translations = {
     feature_community_title: "ਕਿਸਾਨ ਭਾਈਚਾਰਾ",
     feature_community_desc: "ਹੋਰ ਕਿਸਾਨਾਂ ਨਾਲ ਜੁੜੋ, ਅਨੁਭਵ ਸਾਂਝੇ ਕਰੋ ਅਤੇ ਇਕ ਦੂਜੇ ਤੋਂ ਸਿੱਖੋ।",
 
-   
+
     stats_title: "ਭਾਰਤ ਭਰ ਦੇ ਕਿਸਾਨਾਂ ਨੂੰ ਮਜ਼ਬੂਤ ਬਣਾ ਰਹੇ ਹਾਂ",
     stats_farmers: "ਸਕ੍ਰਿਯ ਕਿਸਾਨ",
     stats_districts: "ਕਵਰ ਕੀਤੇ ਜ਼ਿਲ੍ਹੇ",
@@ -325,3 +464,13 @@ function changeLanguage(lang) {
     }
   });
 }
+
+ document.addEventListener("DOMContentLoaded", () => {
+      const langSelector = document.getElementById("languageSelector");
+      if(langSelector){
+        langSelector.addEventListener("change", (e) => {
+          changeLanguage(e.target.value);
+        });
+      }
+      changeLanguage("en"); // default to English
+    });

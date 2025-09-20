@@ -114,7 +114,7 @@
 
  /* Leaderboard (Bar Graph Style) */
 .leaderboard {
-  margin-top: 15px;
+  margin-top: 25px;
 }
 .bar {
   background: #eee;
@@ -199,9 +199,9 @@
 }
 
 .s1{
-    margin: 0 12%;
+    margin: 1% ;
 
 }
 .s2{
-    margin: 1%  12%;
+    margin: 1% ;
 }
