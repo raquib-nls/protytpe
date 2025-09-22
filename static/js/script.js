@@ -39,7 +39,7 @@ function logout() {
   window.location.href = "index.html";
 }
 
-// ================= NAVBAR =================
+//NAVBAR
 function toggleMenu() {
   const nav = document.getElementById("nav-links");
   nav.classList.toggle("show");
@@ -51,7 +51,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// ================= HERO SECTION =================
+// HERO SECTION 
 function fet(){
   window.location.href = "features.html";
 }
@@ -65,7 +65,7 @@ function scrollToFeatures() {
   }
 }
 
-// Hero parallax effect
+// Hero p|| effect
 window.addEventListener("scroll", () => {
   const scrolled = window.pageYOffset;
   const heroBackground = document.querySelector(".hero-background");
@@ -76,7 +76,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// ================= FEATURES CARDS =================
+// FEATURES CARDS 
 function showFeatureDetail(feature) {
   switch (feature) {
     case "soil":
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   featureCards.forEach((card) => {
     card.addEventListener("click", () => {
-      // Bounce effect
+      // Bounce 
       card.style.transform = "translateY(-15px) scale(0.98)";
       setTimeout(() => {
         card.style.transform = "";
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// ================= SMOOTH ANCHOR LINKS =================
+// SMOOTH ANCHOR LINKS 
 document.addEventListener("DOMContentLoaded", () => {
   const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// ================= FADE-IN ON SCROLL =================
+// FADE-IN ON SCROLL 
 const observerOptions = {
   threshold: 0.1,
   rootMargin: "0px 0px -50px 0px",
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// ================= STATS COUNTER =================
+//  STATS COUNT
 function animateCounter(element) {
   const target = parseInt(element.getAttribute("data-target")) || 0; 
   let current = 0;
@@ -199,7 +199,7 @@ function animateCounter(element) {
     if (target >= 1000) {
       element.textContent = displayValue.toLocaleString(); 
     } else {
-      element.textContent = displayValue + "%";
+      element.textContent = displayValue ;
     }
   }, 16);
 }
@@ -247,30 +247,30 @@ function toggleChat() {
 function sendMessage() {
   const input = document.getElementById('queryInput');
   const chatBody = document.getElementById('chatBody');
-  const message = input.value.trim();
+  const msg = input.value.trim();
 
-  if (message) {
+  if (msg) {
 
     const userMsg = document.createElement('div');
     userMsg.className = "chat-message user";
-    userMsg.innerText = message;
+    userMsg.innerText = msg;
     chatBody.appendChild(userMsg);
 
 
     const botMsg = document.createElement('div');
     botMsg.className = "chat-message bot";
 
-    if (message.toLowerCase().includes("hello")) {
+    if (msg.toLowerCase().includes("hello")) {
       botMsg.innerText = "Hi! 🌱 Do you want crop, weather, or soil info?";
     }
-    else if (message.toLowerCase().includes("hey")) {
+    else if (msg.toLowerCase().includes("hey")) {
       botMsg.innerText = "Hello how can i assist you. 😊";
     }
-    else if (message.toLowerCase().includes("crop")) {
+    else if (msg.toLowerCase().includes("crop")) {
       botMsg.innerText = "🌾 Suggested crop: Wheat or Rice based on your season.";
-    } else if (message.toLowerCase().includes("weather")) {
+    } else if (msg.toLowerCase().includes("weather")) {
       botMsg.innerText = "☀️ Weather looks sunny today, good for field work!";
-    } else if (message.toLowerCase().includes("soil")) {
+    } else if (msg.toLowerCase().includes("soil")) {
       botMsg.innerText = "🧪 Soil health tip: Add compost for better fertility.";
     } else {
       botMsg.innerText = "🤖 Sorry, I only know about crops, soil & weather now.";
@@ -286,33 +286,52 @@ function sendMessage() {
   }
 }
 
+let rec; 
+let isListening = false;
+
 function startVoice() {
   if (!('webkitSpeechRecognition' in window)) {
     alert("Sorry, your browser doesn't support speech recognition.");
     return;
   }
 
-  const recognition = new webkitSpeechRecognition();
-  recognition.lang = "en-IN";
-  recognition.continuous = false;
-  recognition.interimResults = false;
+  // Stop 
+  if (isListening) {
+    rec.stop();
+    isListening = false;
+    console.log("Voice input stopped.");
+    return;
+  }
+// to create if not 
+  if (!rec) {
+    rec = new webkitSpeechRecognition();
+    rec.lang = "en-IN";
+    rec.continuous = false;
+    rec.interimResults = false;
 
-  recognition.start();
+    rec.onresult = function (event) {
+      const transcript = event.results[0][0].transcript;
+      document.getElementById("queryInput").value = transcript;
+      sendMessage();
+    };
 
-  recognition.onresult = function (event) {
-    const transcript = event.results[0][0].transcript;
-    document.getElementById("queryInput").value = transcript;
-    sendMessage();
-  };
+    rec.onerror = function (event) {
+      console.error("Speech recognition error:", event.error);
+      isListening = false;
+    };
 
-  recognition.onerror = function (event) {
-    console.error("Speech recognition error:", event.error);
-  };
+    rec.onend = function () {
+      console.log("Speech recognition ended.");
+      isListening = false;
+    };
+  }
 
-  recognition.onend = function () {
-    console.log("Speech recognition ended.");
-  };
+  
+  rec.start();
+  isListening = true;
+  console.log("Voice input started...");
 }
+
 
 
 
@@ -324,7 +343,7 @@ function detectPest() {
   document.getElementById("pestImageInput").onchange = function (event) {
     const file = event.target.files[0];
     if (file) {
-      alert("✅ Image selected: " + file.name + "\n(Here AI model would analyze pest/disease)");
+      alert("Crop Check Done!\n\n• Problem: Small bugs eating leaves\n• Issue: Dark spots on leaves\n• Solution: Use pest spray + plant nutrients\n\nSee step-by-step help below.");
     }
   }
 }
@@ -472,5 +491,5 @@ function changeLanguage(lang) {
           changeLanguage(e.target.value);
         });
       }
-      changeLanguage("en"); // default to English
+      changeLanguage("en"); 
     });

@@ -120,20 +120,24 @@
 </div>
 
 
-
-  <div class="chatbot">
-    <div class="icon" onclick="toggleChat()">..</div>
-    <div class="chat-window" id="chatWindow">
-      <div class="chat-header">🌿 FasalMitra Bot</div>
-      <div class="chat-body" id="chatBody">
-        <div class="chat-message bot">Hello 👋 How can I assist you today, farmer?</div>
-      </div>
-      <div class="chat-footer">
-        <input type="text" id="queryInput" placeholder="Write your queries...">
-        <button onclick="sendMessage()">Send</button>
-      </div>
+<div class="chatbot">
+<div class="icon" onclick="toggleChat()">..</div>
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">🌿 FasalMitra Bot</div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-message bot" data-translate="bot_greeting">Hello 👋 How can I assist you today, farmer?</div>
+  </div>
+  <div class="chat-footer">
+    <input type="text" id="queryInput" placeholder="Write your queries...">
+    <div class="bttn">
+      <button onclick="sendMessage()" data-translate="send_btn">Send</button>
+      <button onclick="startVoice()" id="voiceBtn">🎤</button>
     </div>
   </div>
+</div>
+</div>
+
+ 
 
   <script>
     function postQuestion() {
@@ -144,7 +148,7 @@
         return;
       }
 
-      // Create new post dynamically
+      // cNP
       const postsContainer = document.getElementById("posts");
       const newPost = document.createElement("div");
       newPost.classList.add("post");
@@ -166,9 +170,6 @@
   alert("🎉 You watched: " + videoTitle + "\n+10 reward points earned!");
 }
 
-  function postQuestion() {
-    alert("Question posted!");
-  }
   
   function startVoice() {
     alert("Voice input started!");
@@ -178,6 +179,7 @@
     alert("Video input started!");
   }
   </script>
+
   <script src="static/js/script.js"></script>
 </body>
 </html>
