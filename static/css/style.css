@@ -29,6 +29,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   z-index: 9999;
+  width:220px;
 }
 
 .language-box select {
@@ -186,11 +187,11 @@ body {
     margin: 10px 0;
     width: 100%;
     text-align: center;
-    color: white;
+    color: rgb(29, 27, 27);
   }
 
   .navbar ul li a {
-  color: #ffffff !important;  
+  color: #1a1919 !important;  
   text-decoration: none;       
 }
   .menu-toggle {
@@ -924,7 +925,7 @@ a:hover {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: #4CAF50;
+  /* background-color: #4CAF50; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -955,7 +956,7 @@ a:hover {
 }
 
 .chat-header {
-  background: #4CAF50;
+  background: #5caf5c;
   color: white;
   padding: 10px;
   font-weight: bold;
@@ -981,7 +982,11 @@ a:hover {
   background: #e6ffe6;
   align-self: flex-start;
 }
-
+.chatbot .icon img {
+  width: 70%;     
+  height: 70%;    
+  object-fit: contain; 
+}
 .user {
   background: #d9edf7;
   align-self: flex-end;

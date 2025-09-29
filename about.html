@@ -41,9 +41,10 @@
                         <li data-translate="about_feature_2">Real-time weather forecasts and agricultural alerts</li>
                         <li data-translate="about_feature_3">Soil health analysis and fertilizer recommendations</li>
                         <li data-translate="about_feature_4">Market price updates from over 2,000 mandis across India</li>
-                        <li data-translate="about_feature_5">Multilingual support in Hindi, English, and regional languages</li>
+                        <li data-translate="about_feature_5">Multilingual support in Hindi, English,Malayalam, and regional languages</li>
                         <li data-translate="about_feature_6">Voice-enabled queries for low-literacy farmers</li>
                         <li data-translate="about_feature_7">Expert agricultural advice through our AI chatbot</li>
+                        <li data-translate="about_feature_8">Farmers Activity Records</li>
                     </ul>
                 </div>
 
@@ -56,22 +57,22 @@
     </div>
 
 
-     <div class="chatbot">
-    <div class="icon" onclick="toggleChat()">..</div>
+  <div class="chatbot">
+    <div class="icon" id="cb" onclick="toggleChat()"><img src="message_7572111.png" alt="msgIcon" ></div> 
     <div class="chat-window" id="chatWindow">
-      <div class="chat-header">🌿 FasalMitra Bot</div>
-      <div class="chat-body" id="chatBody">
-        <div class="chat-message bot" data-translate="bot_greeting">Hello 👋 How can I assist you today, farmer?</div>
-      </div>
-      <div class="chat-footer">
-        <input type="text" id="queryInput" placeholder="Write your queries...">
-        <div class="bttn">
-          <button onclick="sendMessage()" data-translate="send_btn">Send</button>
-          <button onclick="startVoice()" id="voiceBtn">🎤</button>
+        <div class="chat-header">🌿 FasalMitra Bot</div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-message bot" data-translate="bot_greeting">Hello 👋 How can I assist you today, farmer?</div>
         </div>
-      </div>
+        <div class="chat-footer">
+            <input type="text" id="queryInput" placeholder="Write your queries...">
+            <div class="bttn">
+                <button onclick="sendMessage()" data-translate="send_btn">Send</button>
+                <button onclick="startVoice()" id="voiceBtn">🎤</button>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
   <script src="static/js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasal Mitra-Activity Records</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/activity.css">
+</head>
+<body>
+      <nav class="navbar">
+    <div class="logo">Fasal Mitra</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features.html">Feature</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+
+  <div class="activity-record">
+  <h3>📝 Activity Record</h3>
+  
+  <label for="activity">Select Activity:</label>
+  <select id="activity">
+    <option>Sowing</option>
+    <option>Irrigation</option>
+    <option>Fertilizer / Pesticide</option>
+    <option>Pest / Disease</option>
+    <option>Harvest</option>
+    <option>Market Sale</option>
+  </select>
+
+  <label for="crop">Crop Name:</label>
+  <input type="text" id="crop" placeholder="e.g. Paddy, Brinjal">
+
+  <label class="dat" for="date">Date:</label>
+  <input type="date" id="date">
+
+  <label for="details">Details:</label>
+  <textarea id="details" placeholder="Enter quantity, notes..."></textarea>
+
+  <button onclick="addActivity()">Add Record</button>
+
+  <h4>📌 My Records (Demo)</h4>
+  <ul id="recordList"></ul>
+</div>
+   <div class="chatbot">
+    <div class="icon" id="cb" onclick="toggleChat()"><img src="message_7572111.png" alt="msgIcon" ></div> 
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">🌿 FasalMitra Bot</div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-message bot" data-translate="bot_greeting">Hello 👋 How can I assist you today, farmer?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="queryInput" placeholder="Write your queries...">
+            <div class="bttn">
+                <button onclick="sendMessage()" data-translate="send_btn">Send</button>
+                <button onclick="startVoice()" id="voiceBtn">🎤</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+function addActivity() {
+  const activity = document.getElementById("activity").value;
+  const crop = document.getElementById("crop").value;
+  const date = document.getElementById("date").value;
+  const details = document.getElementById("details").value;
+
+  const recordList = document.getElementById("recordList");
+  const li = document.createElement("li");
+  li.innerHTML = `<strong>${activity}</strong> | ${crop} | ${date} | ${details}`;
+  recordList.appendChild(li);
+
+  document.getElementById("crop").value = "";
+  document.getElementById("date").value = "";
+  document.getElementById("details").value = "";
+}
+</script>
+
+
+</body>
+</html>

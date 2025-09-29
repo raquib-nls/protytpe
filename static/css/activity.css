@@ -1,0 +1,75 @@
+
+
+/* Activity Record Container */
+.activity-record {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  margin-top: 6%;
+}
+
+.activity-record h3 {
+  margin-bottom: 15px;
+  color: #4CAF50;
+}
+
+.activity-record label {
+  display: block;
+  font-weight: 600;
+  margin: 10px 0 5px;
+}
+
+.activity-record select,
+.activity-record input,
+.activity-record textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.activity-record textarea {
+  resize: none;
+  height: 80px;
+}
+
+.activity-record button {
+  background: #4CAF50;
+  color: white;
+  font-size: 15px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.activity-record button:hover {
+  background: #45a049;
+}
+
+/* Records Section */
+.activity-record h4 {
+  margin-top: 20px;
+  color: #d9534f;
+}
+
+#recordList {
+  list-style: none;
+  padding: 0;
+}
+
+#recordList li {
+  background: #f0fdf4;
+  border: 1px solid #c8e6c9;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  font-size: 14px;
+}

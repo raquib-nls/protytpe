@@ -144,7 +144,6 @@
   font-weight: bold;
 }
 
-/* Video Section (Modern Card Style) */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

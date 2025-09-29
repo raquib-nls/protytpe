@@ -15,16 +15,16 @@
 </head>
 
 <body>
-  <div class="language-box">
-    <select id="languageSelector">
-      <option value="en">🇬🇧 English</option>
-      <option value="hi">🇮🇳 हिंदी</option>
-      <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
-      <option value="bn">🇮🇳 বাংলা</option>
-      <option value="te">🇮🇳 తెలుగు</option>
-      <option value="mr">🇮🇳 मराठी</option>
-    </select>
-  </div>
+<div class="language-box">
+  <select id="languageSelector">
+    <option value="en">🇬🇧 English</option>
+    <option value="ml">🇮🇳 മലയാളം (Malayalam)</option>
+    <option value="hi">🇮🇳 हिंदी (Hindi)</option>
+    <option value="pa">🇮🇳 ਪੰਜਾਬੀ (Punjabi)</option>
+    <option disabled>─────────────────</option>
+    <option disabled>🔜 More languages coming soon...</option>
+  </select>
+</div>
 
   <!-- Navbar -->
   <nav class="navbar">
@@ -158,21 +158,21 @@
 
   <!-- Chatbot -->
   <div class="chatbot">
-    <div class="icon" onclick="toggleChat()">..</div>
+    <div class="icon" id="cb" onclick="toggleChat()"><img src="message_7572111.png" alt="msgIcon" ></div> 
     <div class="chat-window" id="chatWindow">
-      <div class="chat-header">🌿 FasalMitra Bot</div>
-      <div class="chat-body" id="chatBody">
-        <div class="chat-message bot" data-translate="bot_greeting">Hello 👋 How can I assist you today, farmer?</div>
-      </div>
-      <div class="chat-footer">
-        <input type="text" id="queryInput" placeholder="Write your queries...">
-        <div class="bttn">
-          <button onclick="sendMessage()" data-translate="send_btn">Send</button>
-          <button onclick="startVoice()" id="voiceBtn">🎤</button>
+        <div class="chat-header">🌿 FasalMitra Bot</div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-message bot" data-translate="bot_greeting">Hello 👋 How can I assist you today, farmer?</div>
         </div>
-      </div>
+        <div class="chat-footer">
+            <input type="text" id="queryInput" placeholder="Write your queries...">
+            <div class="bttn">
+                <button onclick="sendMessage()" data-translate="send_btn">Send</button>
+                <button onclick="startVoice()" id="voiceBtn">🎤</button>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
 
   <script src="static/js/script.js"></script>
 

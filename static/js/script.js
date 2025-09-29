@@ -333,7 +333,34 @@ function startVoice() {
 }
 
 
+function closeChatOnOutsideClick(event) {
+    const chatWindow = document.getElementById('chatWindow');
+ 
+    const chatButton = document.getElementById('cb'); 
 
+   
+    if (chatWindow.style.display === 'flex') {
+        
+      
+        const clickedOutsideWindow = !chatWindow.contains(event.target);
+        
+        const clickedOutsideButton = chatButton && !chatButton.contains(event.target);
+
+        if (clickedOutsideWindow && clickedOutsideButton) {
+            chatWindow.style.display = 'none'; 
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('click', closeChatOnOutsideClick);
+    
+    const chatWindow = document.getElementById('chatWindow');
+    if (chatWindow) {
+      
+        chatWindow.style.display = 'none'; 
+    }
+});
 
 function detectPest() {
 
@@ -447,7 +474,7 @@ const translations = {
     features_subheader: "ਕਿਸਾਨਾਂ ਨੂੰ ਅਧੁਨਿਕ ਤਕਨਾਲੋਜੀ ਅਤੇ ਨਿੱਜੀ ਕਿਸਾਨੀ ਮਾਰਗਦਰਸ਼ਨ ਨਾਲ ਮਜ਼ਬੂਤ ਬਣਾਉਣਾ",
 
     feature_soil_title: "ਮਿੱਟੀ ਸਿਹਤ ਸਲਾਹ",
-    feature_soil_desc: "ਤੁਹਾਡੇ ਖੇਤ ਦੀਆਂ ਜ਼ਰੂਰਤਾਂ ਅਨੁਸਾਰ ਮਿੱਟੀ ਵਿਸ਼ਲੇਸ਼ਣ ਅਤੇ ਖਾਦ ਦੀ ਸਿਫਾਰਸ਼ ਪ੍ਰਾਪਤ ਕਰੋ।",
+    feature_soil_desc: "ਤੁਹਾਡੇ ਖੇਤ ਦੀਆਂ ਜ਼ਰੂਰਤਾਂ ਅਨੁਸਾਰ ਮਿੱਟੀ ਵਿਸ਼ਲੇਸ਼ਣ ਅਤੇ ਖਾਦ ਦੀ ਸਿਫਾਰਸ਼ ਪ੍ਰਾਪਤ ਕਰੋ।",
     feature_pest_title: "ਕੀੜੇ ਅਤੇ ਬਿਮਾਰੀ ਪਛਾਣ",
     feature_pest_desc: "ਏਆਈ ਆਧਾਰਿਤ ਬਿਮਾਰੀ ਪਛਾਣ ਅਤੇ ਇਲਾਜ ਸਿਫਾਰਸ਼ਾਂ ਲਈ ਫਸਲ ਦੀਆਂ ਤਸਵੀਰਾਂ ਅਪਲੋਡ ਕਰੋ।",
     feature_crop_title: "ਫਸਲ ਸਿਫਾਰਸ਼",
@@ -471,6 +498,41 @@ const translations = {
     stats_districts: "ਕਵਰ ਕੀਤੇ ਜ਼ਿਲ੍ਹੇ",
     stats_queries: "ਹੱਲ ਕੀਤੇ ਗਏ ਪ੍ਰਸ਼ਨ",
     stats_satisfaction: "ਕਿਸਾਨ ਸੰਤੁਸ਼ਟੀ"
+  },
+
+  ml: {
+
+    hero_title: "ഫസൽ മിത്രയിലേക്ക് സ്വാഗതം",
+    hero_subtitle: "ആധുനിക കൃഷിക്കുള്ള നിങ്ങളുടെ വിശ്വസ്ത സഹായി. വിദഗ്ധ ഉപദേശം, കാലാവസ്ഥാ വിവരങ്ങൾ, മാർക്കറ്റ് വില, വിള ശുപാർശകൾ എല്ലാം ഒരിടത്ത്.",
+    hero_cta: "നിങ്ങളുടെ കൃഷി യാത്ര ആരംഭിക്കുക",
+
+    features_header: "സമഗ്ര കൃഷി പരിഹാരങ്ങൾ",
+    features_subheader: "അത്യാധുനിക സാങ്കേതികവിദ്യയും വ്യക്തിഗത കാർഷിക മാർഗ്ഗനിർദ്ദേശവും ഉപയോഗിച്ച് കർഷകരെ ശാക്തീകരിക്കുന്നു",
+    feature_soil_title: "മണ്ണ് ആരോഗ്യ ഉപദേശം",
+    feature_soil_desc: "നിങ്ങളുടെ കൃഷിയിടത്തിന്റെ പ്രത്യേക ആവശ്യങ്ങൾക്കനുസരിച്ച് മണ്ണ് വിശകലനവും വളം ശുപാർശകളും നേടുക.",
+    feature_pest_title: "കീടരോഗ കണ്ടെത്തൽ",
+    feature_pest_desc: "എഐ അധിഷ്ഠിത രോഗ നിർണയത്തിനും ചികിത്സാ ശുപാർശകൾക്കുമായി വിള ചിത്രങ്ങൾ അപ്‌ലോഡ് ചെയ്യുക.",
+    feature_crop_title: "വിള ശുപാർശ",
+    feature_crop_desc: "നിങ്ങളുടെ സ്ഥലം, മണ്ണിന്റെ തരം, നിലവിലെ കാലാവസ്ഥ എന്നിവയ്ക്കനുസരിച്ച് ഏറ്റവും മികച്ച വിളകൾ കണ്ടെത്തുക.",
+    feature_market_title: "മാർക്കറ്റ് വില",
+    feature_market_desc: "മികച്ച വിൽപ്പന തീരുമാനങ്ങൾക്കായി തത്സമയ മണ്ഡി നിരക്കുകളും വില പ്രവണതകളും അപ്‌ഡേറ്റ് ചെയ്യുക.",
+    feature_weather_title: "കാലാവസ്ഥ പ്രവചനം",
+    feature_weather_desc: "നിങ്ങളുടെ പ്രദേശത്തിന് കൃത്യമായ കാലാവസ്ഥാ പ്രവചനങ്ങളും കാർഷിക മുന്നറിയിപ്പുകളും നേടുക.",
+    feature_voice_title: "വോയ്‌സ് പിന്തുണ",
+    feature_voice_desc: "വിവരങ്ങളിലേക്ക് എളുപ്പത്തിൽ പ്രവേശനത്തിനായി നിങ്ങളുടെ ഇഷ്ടഭാഷയിൽ ശബ്ദം ഉപയോഗിച്ച് ചോദ്യങ്ങൾ ചോദിക്കുക.",
+    feature_chatbot_title: "എഐ ഉപദേശക ചാറ്റ്‌ബോട്ട്",
+    feature_chatbot_desc: "ഞങ്ങളുടെ ബഹുഭാഷാ എഐ അസിസ്റ്റന്റ് വഴി നിങ്ങളുടെ കാർഷിക ചോദ്യങ്ങൾക്ക് ഉടനടി ഉത്തരം നേടുക.",
+    feature_tips_title: "പെട്ടെന്നുള്ള നുറുങ്ങുകൾ",
+    feature_tips_desc: "നിങ്ങളുടെ വിള വിളവും കൃഷിയിട മാനേജ്‌മെന്റും മെച്ചപ്പെടുത്താൻ ദൈനംദിന കൃഷി നുറുങ്ങുകളും മികച്ച രീതികളും.",
+    feature_community_title: "കർഷക സമൂഹം",
+    feature_community_desc: "സഹ കർഷകരുമായി ബന്ധപ്പെടുക, അനുഭവങ്ങൾ പങ്കിടുക, പരസ്പരം പഠിക്കുക.",
+
+
+    stats_title: "ഇന്ത്യയിലുടനീളമുള്ള കർഷകരെ ശാക്തീകരിക്കുന്നു",
+    stats_farmers: "സജീവ കർഷകർ",
+    stats_districts: "കവർ ചെയ്ത ജില്ലകൾ",
+    stats_queries: "പരിഹരിച്ച ചോദ്യങ്ങൾ",
+    stats_satisfaction: "കർഷക സംതൃപ്തി"
   }
 };
 

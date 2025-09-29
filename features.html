@@ -62,28 +62,33 @@
     <a href="community.html">Community</a>
     <p>Connect with fellow farmers, share experiences, and learn best practices together.</p>
   </div>
+  <div class="card">
+  <div class="icon">📝</div>
+  <a href="activity.html">Activity Records</a>
+  <p>Log your daily farming activities like sowing, irrigation, inputs, and harvests.</p>
 </div>
+</div>
+
 
 
     <button onclick="logout()">Logout</button>
   </div>
-
-    <div class="chatbot">
-    <div class="icon" onclick="toggleChat()">..</div>
+  <div class="chatbot">
+    <div class="icon" id="cb" onclick="toggleChat()"><img src="message_7572111.png" alt="msgIcon" ></div> 
     <div class="chat-window" id="chatWindow">
-      <div class="chat-header">🌿 FasalMitra Bot</div>
-      <div class="chat-body" id="chatBody">
-        <div class="chat-message bot" data-translate="bot_greeting">Hello 👋 How can I assist you today, farmer?</div>
-      </div>
-      <div class="chat-footer">
-        <input type="text" id="queryInput" placeholder="Write your queries...">
-        <div class="bttn">
-          <button onclick="sendMessage()" data-translate="send_btn">Send</button>
-          <button onclick="startVoice()" id="voiceBtn">🎤</button>
+        <div class="chat-header">🌿 FasalMitra Bot</div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-message bot" data-translate="bot_greeting">Hello 👋 How can I assist you today, farmer?</div>
         </div>
-      </div>
+        <div class="chat-footer">
+            <input type="text" id="queryInput" placeholder="Write your queries...">
+            <div class="bttn">
+                <button onclick="sendMessage()" data-translate="send_btn">Send</button>
+                <button onclick="startVoice()" id="voiceBtn">🎤</button>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
   <script src="static/js/script.js"></script>
 </body>
 </html>
